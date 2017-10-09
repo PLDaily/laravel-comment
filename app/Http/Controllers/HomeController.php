@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\HomeRepository;
 
 class HomeController extends Controller
 {
+
+    protected $home;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(HomeRepository $home)
     {
+        $this->home = $home;
         $this->middleware('auth');
     }
 
@@ -28,6 +32,7 @@ class HomeController extends Controller
 
     public function comment(Request $request)
     {
-        
+        $data = $request->all();
+        $ret = $this->home->add($data);
     }
 }

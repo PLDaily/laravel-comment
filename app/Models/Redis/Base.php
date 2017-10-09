@@ -6,20 +6,23 @@ use Illuminate\Support\Facades\Redis;
 
 class Base
 {
-	static $view_num;
-
-	protected function increment()
+	protected function increment($key)
 	{
-		return Redis::incr($view_num);
+		return Redis::incr($key);
 	}
 
-	protected function decrement()
+	protected function decrement($key)
 	{
-		return Redis::decr($view_num);
+		return Redis::decr($key);
 	}
 
-	protected function get()
+	protected function setValue($key, $value)
 	{
-		return Redis::get($view_num);
+		return Redis::set($key, $value);
+	}
+
+	protected function get($key)
+	{
+		return Redis::get($key);
 	}
 }
