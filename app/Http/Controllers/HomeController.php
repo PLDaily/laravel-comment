@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\HomeRepository;
+use App\Events\HomeView;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $comment_list = $this->home->all();
+        event(new HomeView($comment_list));
         return view('home');
     }
 

@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Repositories\Eloquent\Repository;
 use App\Models\Comment;
-use App\Events\HomeView;
 
 class HomeRepository extends Repository
 {
@@ -19,9 +18,13 @@ class HomeRepository extends Repository
     }
 
     public function add($data)
-    {
-    	$uid = auth()->id() ? auth()->id() : 0;
-    	
-    	event(new HomeView($data));
+    {    	
+        $data = [];
+
+        $uid = auth()->id() ? auth()->id() : 0;
+        $data['uid'] = uid;
+
+        $comment = $this->skipTransformer()->create($data);
+
     }
 }
