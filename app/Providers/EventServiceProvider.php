@@ -12,10 +12,17 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
-        ],
+    // protected $listen = [
+    //     'App\Events\Event' => [
+    //         'App\Listeners\EventListener',
+    //     ],
+    //     'App\Events\HomeView' => [
+    //         'App\Listeners\Home',
+    //     ]
+    // ];
+
+    protected $subscribe = [
+        'App\Listeners\HomeCount',
     ];
 
     /**

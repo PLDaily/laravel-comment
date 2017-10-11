@@ -11,7 +11,7 @@ class Home extends Base
 
 	public function getCount()
 	{
-		$this->get('view');
+		return $this->get('view');
 	}
 
 	public function setPageViewBase($value)

@@ -4,15 +4,15 @@ namespace App\Transformers;
 
 use App\Models\Comment;
 use League\Fractal\TransformerAbstract;
-use App\Models\Redis\Home as HomeRedis;
+use App\Models\Redis\Home;
 
 class HomeTransformer extends TransformerAbstract
 {
 	public function transform(Comment $model)
 	{
-		$redis_comment = new HomeRedis();
+		$redis_comment = new Home();
 
-		$view_count = $redis_comment->getCount('view');
+		$view_count = $redis_comment->getCount();
 
 		$model->view_count = $view_count ? $view_count : 0;
 

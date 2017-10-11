@@ -32,8 +32,8 @@ class HomeController extends Controller
     {
         $this->home->pushCriteria(new ViewHign());
         $comment_list = $this->home->all();
-        dd($comment_list);
         event(new HomeView($comment_list));
+        dd($comment_list);
         return view('home');
     }
 
