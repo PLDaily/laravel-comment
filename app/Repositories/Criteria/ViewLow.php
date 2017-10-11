@@ -5,7 +5,7 @@ namespace App\Repositories\Criteria;
 use App\Repositories\Criteria\Criteria;
 use App\Repositories\Contracts\RepositoryInterface as Repository;
 
-class ArticleHottestRead extends Criteria
+class ViewLow extends Criteria
 {
 
     public function apply($model, Repository $repository)

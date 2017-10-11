@@ -12,7 +12,7 @@ class HomeRepository extends Repository
         return 'App\Models\Comment';
     }
 
-    public function transfomer()
+    public function transformer()
     {
         return "App\\Transformers\\HomeTransformer";
     }

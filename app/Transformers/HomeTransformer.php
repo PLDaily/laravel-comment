@@ -12,10 +12,10 @@ class HomeTransformer extends TransformerAbstract
 	{
 		$redis_comment = new HomeRedis();
 
-		$view_count = redis_article->getCount('view');
+		$view_count = $redis_comment->getCount('view');
 
 		$model->view_count = $view_count ? $view_count : 0;
 
-		return $model->array();
+		return $model->toArray();
 	}
 }
