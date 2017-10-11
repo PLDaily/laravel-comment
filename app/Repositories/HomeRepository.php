@@ -19,12 +19,8 @@ class HomeRepository extends Repository
 
     public function add($data)
     {    	
-        $data = [];
-
         $uid = auth()->id() ? auth()->id() : 0;
-        $data['uid'] = uid;
-
+        $data['uid'] = $uid;
         $comment = $this->skipTransformer()->create($data);
-
     }
 }

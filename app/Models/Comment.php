@@ -10,5 +10,5 @@ class Comment extends Model
 
 	protected $primaryKey = 'id';
 
-	protected $fileable = ['id', 'uid', 'content'];
+	protected $fillable = ['uid','content'];
 }
